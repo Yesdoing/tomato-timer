@@ -29,7 +29,6 @@ class Timer extends Component {
 
 
   render() {
-    console.log(this.props);
     const {
       isPlaying,
       elapsedTime,
