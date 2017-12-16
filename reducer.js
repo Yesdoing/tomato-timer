@@ -90,6 +90,8 @@ const actionCreators = {
     addSecond
 };
 
+export { actionCreators };
+
 // Export Rudecer 
 
 export default reducer;

@@ -4,7 +4,14 @@ import Button from "../Button";
 
 class Timer extends Component {
   render() {
-    const { isPlaying, elapsedTime, timeDuration } = this.props;
+    console.log(this.props);
+    const {
+      isPlaying,
+      elapsedTime,
+      timeDuration,
+      startTimer,
+      restartTimer
+    } = this.props;
     return (
       <View style={styles.container}>
         <StatusBar barStyle={"light-content"} />
@@ -12,8 +19,12 @@ class Timer extends Component {
           <Text style={styles.time}>25:00</Text>
         </View>
         <View style={styles.lower}>
-            { !isPlaying && (<Button iconName="play-circle" onPress={() => alert("it works!")}/> )}
-            { isPlaying && (<Button iconName="stop-circle" onPress={() => alert("it works!")}/> )}
+          {!isPlaying && (
+            <Button iconName="play-circle" onPress={startTimer} />
+          )}
+          {isPlaying && (
+            <Button iconName="stop-circle" onPress={restartTimer} />
+          )}
         </View>
       </View>
     );
@@ -23,7 +34,7 @@ class Timer extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#CE0B24'
+    backgroundColor: "#CE0B24"
   },
   upper: {
     flex: 2,
@@ -36,9 +47,9 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   time: {
-      color: "white",
-      fontSize: 120,
-      fontWeight: "100"
+    color: "white",
+    fontSize: 120,
+    fontWeight: "100"
   }
 });
 
